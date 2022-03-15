@@ -44,4 +44,22 @@ services:
       - ./docker/db/data:/var/lib/mysql
       - ./docker/db/my.cnf:/etc/mysql/conf.d/my.cnf
     ports:
-      - 3306:3306
+      - 3308:3306 # DBのポート番号
+  # ----------------------------------
+  # phpMyAdminを動かすコンテナ
+  # ----------------------------------
+  phpmyadmin:
+    container_name: phpmyadmin # コンテナ名
+    image: phpmyadmin/phpmyadmin # Docker Hubからイメージをダウンロード
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=db
+      - PMA_PORT=3306
+      #- PMA_USER=laravel_user
+      #- PMA_PASSWORD=laravel_pass
+    links: 
+      - db
+    ports: # localhost:8087(ポート番号)でphpmyadmin の管理画面にアクセス
+      - 8087:80
+    volumes: # セッション情報をボリュームに設定して永続化
+      - /sessions
