@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\User; // User.phpを使用
 use Illuminate\Support\Facades\Hash; // パスワードを乱数にする設定
 use Illuminate\Support\Facades\DB; // DBクラスを使用
-use App\Chat; // chat.phpを使用
+use App\Entry; // Entry.phpを使用
 use Illuminate\Support\Facades\Auth; // Authクラスを使用
 
 class UsersController extends Controller
