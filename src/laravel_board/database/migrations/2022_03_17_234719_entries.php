@@ -19,7 +19,6 @@ class Entries extends Migration
             $table->foreign('user_id') 
                 ->references('id')->on('users')
                 ->onDelete('cascade');  // usersテーブルのidが削除された場合、同じuser_idをentriesテーブルから削除
-            $table->string('thread_title'); // スレッドのタイトル
             $table->string('thread_text'); // スレッドの本文
             $table->timestamps(); // 作成日時と更新日時
         });
