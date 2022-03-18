@@ -18,7 +18,7 @@
             <div class="outer-login-form">
                 <section>
                     <form action="{{ route('login') }}" method="post" enctype="multipart/form-data" autocomplete="off">
-                        @csrf <!-- CSRF保護 -->
+                    @csrf <!-- CSRF保護 -->
                         <p>ニックネーム</p>
                         <p><input type="text" name="nickname" placeholder="ニックネームを入力してください" autocomplete="off" style="width:250px; height:30px;"></P>
                         <p>パスワード</P>
@@ -28,7 +28,6 @@
                     <a href="{{ route('signup_form') }}">新規登録画面に戻る</a> <!-- リダイレクト -->
                 </section>
             </div>
-        </form>
         <div class="error-indication">
             @foreach ($errors->all() as $error) <!--入力ミスまたは重複している部分があれば、警告文で知らせてくれる処理-->
                 <li>{{$error}}</li>
