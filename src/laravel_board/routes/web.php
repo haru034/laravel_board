@@ -28,4 +28,19 @@ Route::get('/login_form', 'UsersController@login_form')->name('login_form');
 Route::post('/login', 'UsersController@login')->name('login'); // ログイン認証
 
 // ホーム画面へ遷移
-Route::get('/home_screen', 'ChatController@home_screen')->name('home_screen');
+Route::get('/home_screen', 'EntriesController@home_screen')->name('home_screen');
+
+// チャット登録
+Route::post('/entry', 'EntriesController@entry')->name('entry');
+
+// スレッド登録
+Route::post('/thread_link', 'EntriesController@thread_link')->name('thread_link');
+
+// マイページへ遷移
+Route::get('/mypage', 'UsersController@mypage')->name('mypage');
+
+// ユーザー情報の更新
+Route::post('/update', 'UsersController@update')->name('users.update');
+
+// ユーザーを削除
+Route::post('/destroy', 'UsersController@destroy')->name('users.destroy');
